@@ -4,10 +4,11 @@ body {
 }
 
 a, p{
-    font-family:'Times New Roman', Times, serif;
-    font-size: 10pt;
+    font-family: Helvetica, sans-serif;
+    font-size: 9pt;
+    font-weight: 100;
     text-decoration: none;
-    color: black;
+    color: rgb(82, 82, 82);
 }
 
 h1{
