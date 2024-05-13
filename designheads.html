@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Boredom of images, but a love of representation and ideals underneath it all</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    </head>
+        <div id="projects">
+            <div class="Designheads">
+                <a href="designheads.html">Designheads</a>
+            </div>
+            <div class="peredoux">
+                <a href="redouxpinkessay.html">Redoux + Pink Essay</a>
+            </div>
+            <div class="DoubleVision">
+                <a href="doublevision.html">Double Vision</a>
+            </div>
+            <div class="officemag">
+                <a href="officemag.html">Office Magazine</a>
+            </div>
+            <div class="officemag">
+                <a href="poster.html">Lower Grand Radio</a>
+            </div>
+            <div class="fearthefeast">
+                <a href="fearthefeast.html">Fear the Feast</a>
+            </div>
+        </div>
+        <div id="content">
+            <h1>Design and direction for Designhead's first print issue</h1>
+            <img src="dhprint4.png">
+            <img src="dhprint3.png">
+            <img src="dhprint2.png" style="padding-bottom: 30pt;">
+            
+        </div>
+        </div>
+        <div id="about">
+            <a href="about.html">About</a>
+            <p>Last update 5.12.2024</p>
+        </div>
+        <script type="text/javascript">
+            var images = ['peekinsidetarathomas.jpg', 'peekinsideramon.jpg','peekinsidefernando.jpg']
+            i=1;
+
+            for(var j =images.length; j--;){
+                var img = new Image();
+                img.src = images[j];
+            }
+            document.getElementById('ramon').addEventListener('click', function(){
+                this.src = images[i >= images.length - 1 ? i = 0 : ++i];
+            }, false);
+           
+        </script>
+    </body>
+</html>

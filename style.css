@@ -1,0 +1,95 @@
+body {
+ padding: 1%;
+ background: #FDFDFD;
+}
+
+a, p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 10pt;
+    font-weight: 100;
+    text-decoration: none;
+    color: black;
+}
+
+h1{
+    text-align:center;
+    top:0;
+    margin-left:20%;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 10pt;
+    font-weight:100;
+    text-decoration: none;
+    color: black;
+}
+
+br{
+    display: block;
+    content:"";
+    margin-top: -5px;
+
+}
+#contentdh{
+    margin-left:30%;
+    text-align:center;
+    
+}
+
+
+#dhimages img{
+    width: 200px;
+    display: flex;
+    margin-top: 20px;
+    position:relative;
+}
+#ramon{
+    cursor: default;
+}
+#ramon:hover{
+    cursor: pointer;
+}
+
+#content img{
+    top:0pt;
+    margin-left: 30%;
+    margin-top: 0pt;
+    margin-bottom: -20pt;
+    position:relative;
+    width: 60%;
+}
+#contentabout{
+    margin-left:30%;
+}
+img{
+    bottom:60px;
+    position: fixed;
+    width: 100px; 
+}
+
+#projects{
+    display: flexbox;
+    flex-direction: column;
+    width: 30%;
+}
+
+#projects{
+    position: fixed;
+}
+
+.postcard{
+display: flex;
+flex-direction: row;
+justify-content: center;
+width: 80%;
+margin-left: 10%;
+right: 15px;
+}
+
+.postcard img{
+    margin-right: 5%;
+}
+
+#about{
+    position: fixed;
+    bottom: 0;
+
+}
