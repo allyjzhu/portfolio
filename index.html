@@ -20,10 +20,22 @@
     <title>Boredom of images, but a love of representation and ideals underneath it all</title>
     <link rel="stylesheet" href="./style.css">
     <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let signs = ["merceds.svg.png", "apple.png", "plane.png", "puma.png", "rabbit.png", "snowflake-47.png", "toyota.png", "pig.png", "mickey.png", "horse.png", "honda-xxl.png", "github.png", "dollar.png", "chess.png", "female.png"]
+            var choose = Math.floor(signs.length * Math.random());
+            var logo = document.getElementById("sign");
+            logo.src = signs[choose];
+            console.log(logo)
+        })
+    </script>
     <link rel="icon" href="favicon.png" type="image/x-icon">
     </head>
     <body>
-        <div id="projects">
+        <div >
+            <img id ="sign" src="apple.png" style="position:relative; display:block; width:40vw; min-width: 250px; max-width: 500px;margin-left: 30%; margin-right: 30%; padding-top: 100px; padding-bottom: 10px; margin-bottom: 10%;">
+        </div>
+        <div id="projects" style="position:fixed; bottom: 15%;">
             <div class="Faith">
                 <a href="http://aesthetics.allyjzhu.com" target="_blank">Faith in identity</a>
             </div>
