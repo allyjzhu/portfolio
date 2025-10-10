@@ -19,22 +19,102 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The perfect apple soda</title>
     <link rel="stylesheet" href="./style.css">
+    <style>
+        body {
+      margin: 0;
+      overflow: hidden;
+    }
+    </style>
     <script src="script.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            let signs = ["merceds.svg.png", "apple.png", "plane.png", "puma.png", "rabbit.png", "snowflake-47.png", "toyota.png", "pig.png", "mickey.png", "horse.png", "honda-xxl.png", "github.png", "dollar.png", "chess.png", "female.png"]
-            var choose = Math.floor(signs.length * Math.random());
-            var logo = document.getElementById("sign");
-            logo.src = signs[choose];
-            console.log(logo)
-        })
-    </script>
     <link rel="icon" href="images.png" type="image/x-icon">
     </head>
     <body>
-        <div >
-            <img id ="sign" src="apple.png" style="position:relative; display:block; width:40vw; min-width: 250px; max-width: 500px;margin-left: 30%; margin-right: 30%; padding-top: 100px; padding-bottom: 10px; margin-bottom: 10%;">
-        </div>
+        <canvas id="snow"></canvas>
+        <script>
+            const petalImg = new Image();
+            petalImg.src = 'sakura.png';
+            
+            const canvas = document.getElementById('snow');
+            const ctx = canvas.getContext('2d');
+            
+            let W = canvas.width = window.innerWidth;
+            let H = canvas.height = window.innerHeight;
+            
+            const ground = new Array(W).fill(H);
+            const petals = [];
+            const maxPetals = 20;
+            
+            class Petal {
+              constructor() { this.reset(); }
+            
+              reset() {
+                this.x = Math.random() * W;
+                this.y = Math.random() * -H;
+                this.size = 18 + Math.random() * 12;
+                this.speed = 0.2 + Math.random();
+                this.drift = (Math.random() - 0.5) * 1.2;
+                this.angle = Math.random() * Math.PI * 2;
+                this.spin = (Math.random() - 0.5) * 0.05;
+              }
+            
+              update() {
+                this.angle += this.spin;
+                this.x += this.drift + Math.sin(this.angle) * 0.5;
+                this.y += this.speed;
+            
+                if (this.x < 0) this.x = W;
+                if (this.x > W) this.x = 0;
+            
+                const gx = Math.floor(this.x);
+                if (gx >= 0 && gx < W && this.y + this.size >= ground[gx]) {
+                  // add to pile height map
+                  for (let i = gx - this.size / 2; i <= gx + this.size / 2; i++) {
+                    if (i >= 0 && i < W) {
+                      ground[i] -= this.size / 2;
+                    }
+                  }
+                  this.reset();
+                }
+              }
+            
+              draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+                ctx.globalAlpha = 0.85;
+                ctx.drawImage(petalImg, -this.size, -this.size, this.size, this.size);
+                ctx.restore();
+                ctx.globalAlpha = 1;
+              }
+            }
+            
+            
+            function animate() {
+              // clear only the top area (keep the pile)
+              ctx.clearRect(0, 0, W, Math.min(...ground) - 10);
+            
+              if (petals.length < maxPetals) petals.push(new Petal());
+            
+              for (const p of petals) {
+                p.update();
+                p.draw();
+              }
+                        
+              requestAnimationFrame(animate);
+            }
+            
+            petalImg.onload = animate;
+            
+            window.addEventListener('resize', () => {
+              W = canvas.width = window.innerWidth;
+              H = canvas.height = window.innerHeight;
+              ground.length = W;
+              ground.fill(H);
+            });
+            </script>
+            
+            
+    
         <div id="projects" style="position:fixed; bottom: 15%;">
             <div class="Scales of Universe">
                 <a href="https://sfownership.antievictionmap.com/index.html" target="_blank">SF Ownership Map</a>

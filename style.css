@@ -1,7 +1,12 @@
 body {
  padding: 1%;
- background: #fdfdfd;
+ background: salmon;
+
 }
+
+canvas {
+    display: block;
+  }
 
 a, p{
     font-family: 'Times New Roman', Times, serif;
